@@ -168,6 +168,15 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
+    coblock = []
+    for z in range(10):
+        coord = []
+        for x in range(5):
+            coord.append("(i" + str(z) + ",j" + str(x) + ")")
+        coblock.append(coord)
+    return coblock
+    
+        
     return None
 
 
@@ -191,6 +200,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
+    wedge = []
+    for i in range(11):
+        var_row = []
+        for j in range(i):
+            var_row.append(str(j))
+        wedge.append(var_row)
+    return wedge
+
     return None
 
 
