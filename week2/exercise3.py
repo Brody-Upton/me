@@ -106,8 +106,16 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    something = map(loops_2,range(10))
-    return something
+    
+    square_list = []
+    for j in range(10):
+        num_list = []
+        for i in range(10):
+            num_list.append(str(j))
+        square_list.append(num_list)
+        
+    return square_list
+    
 
 
 def loops_4():
