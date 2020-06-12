@@ -135,7 +135,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    block = []
+    for j in range(10):
+        row_list = []
+        for i in range(10):
+            row_list.append(str(i))
+        block.append(row_list)
+    return block
 
 
 def loops_5():
