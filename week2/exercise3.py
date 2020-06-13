@@ -230,7 +230,18 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    pyramid = []
+
+    for i in range(4):
+        row = []
+        for j in range(8):
+            if j < (4-i) or j > (5+i):
+                row.append(" ")
+            else:
+                row.append("*")
+        pyramid.append(row)
+    return pyramid
+
 
 
 def lp(some_kind_of_list, exercise_name):
