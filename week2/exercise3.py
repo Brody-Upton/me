@@ -208,8 +208,6 @@ def loops_6():
         wedge.append(var_row)
     return wedge
 
-    return None
-
 
 def loops_7():
     """Make a pyramid.
