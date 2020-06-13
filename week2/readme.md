@@ -12,4 +12,10 @@ Exercise 3: While I can easily picture the solution to a problem in my head and 
 
 For the star problem, I found it relatively easy to picture how the solution would look. I could solve it by having an empty list and mapping a single character ("*") to each place in the list. Yet, applying this sort of logic didn't work when translating that idea into code. I think this is perhaps due to a lack of knowledge of python conventions, vocabulary and know-how.
 
-This exercise was extremely tough as it required actually understanding how code is applied and relied a lot on convention (proper use of lists, maps, loops, function definition, return)
+The pyramid exercise was the toughest of all the exercises for this week. Like all the other exercises, I knew a variety of ways which could be solved but couldn't translate each idea easily into code in order for it to work. I considered adding a wedge of spaces, a wedge of stars and a wedge of spaces side by side but this looked at the problem to visually and not like a programmer would. Would led me to the solution was considering other commands in python (if statements, else, elif, while, for etc.) as I was getting tunnel vision by just looking at for loops. It was really satisfying when the code actually worked after a lot of struggle. I was also happy as the length of the code was short for the problem it was meant to solve.
+
+Last weeks reading were interesting too. *Maker vs Manager's schedule* was about how differently a programmer schedules their time as opposed to a typical manager. Programmers work in large blocks of time where they can concentrate on a project whereas a manager has a flexible schedule which is made up of one hour time slots which are convenient for meetings.
+
+The reading on complex systems was great as well. It gave rise to the importance of thinking non-intuitively when thinking of iterative loops in real life situation (bushfires and forest growth).
+
+If I learnt anything from this week, it is to learn more python vocabulary and commands to make my life easier.

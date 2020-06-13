@@ -204,7 +204,7 @@ def loops_6():
     for i in range(10):
         var_row = []
         for j in range(i + 1):
-            var_row.append(j)
+            var_row.append(str(j))
         wedge.append(var_row)
     return wedge
 
@@ -232,10 +232,10 @@ def loops_7():
     """
     pyramid = []
 
-    for i in range(4):
+    for i in range(5):
         row = []
-        for j in range(8):
-            if j < (4-i) or j > (5+i):
+        for j in range(9):
+            if j < (4-i) or j > (4+i):
                 row.append(" ")
             else:
                 row.append("*")
