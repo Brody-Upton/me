@@ -172,7 +172,7 @@ def loops_5():
     for z in range(10):
         coord = []
         for x in range(5):
-            coord.append("(i" + str(z) + ",j" + str(x) + ")")
+            coord.append("(i" + str(z) + ", j" + str(x) + ")")
         coblock.append(coord)
     return coblock
     
@@ -201,10 +201,10 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     wedge = []
-    for i in range(11):
+    for i in range(10):
         var_row = []
-        for j in range(i):
-            var_row.append(str(j))
+        for j in range(i + 1):
+            var_row.append(j)
         wedge.append(var_row)
     return wedge
 
