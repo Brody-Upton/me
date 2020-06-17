@@ -53,7 +53,16 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    return None
+    reply = None
+
+    input("Input number between low and high: ")
+    reply = int(input("Input number between low and high: "))
+    while reply <= low or reply >= high:
+        print("Uh oh, try again")
+        input("Input number between low and high: ")
+        reply = int(input("Input number between low and high: "))
+    print("Bingo!")
+    return reply
 
 
 def not_number_rejector(message):
