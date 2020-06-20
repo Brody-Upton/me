@@ -53,14 +53,13 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    reply = None
-
-    input("Input number between low and high: ")
+    
     reply = int(input("Input number between low and high: "))
     while reply <= low or reply >= high:
         print("Uh oh, try again")
         input("Input number between low and high: ")
         reply = int(input("Input number between low and high: "))
+        
     print("Bingo!")
     return reply
 
@@ -72,7 +71,11 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    response = input("type a number!")
+    while response != int(response):
+        print("oh no! Try again")
+        response = input("Try another message")
+    return response
 
 
 def super_asker(low, high):
