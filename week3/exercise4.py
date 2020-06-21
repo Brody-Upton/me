@@ -23,9 +23,20 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding 
     things much easier.
     """
-    tries = 0
-    guess = 0
-    return {"guess": guess, "tries": tries}
+    tries = -1
+    guess = math.floor((low + high) / 2 )
+
+    while tries < 100:
+        tries += 1
+        if guess < actual_number:
+            low = guess
+            guess = low + math.ceil((high - low) / 2)
+        elif guess > actual_number:
+            high = guess
+            guess = low + math.floor((high - low) / 2)
+        elif guess == actual_number:
+            print("You got it!")
+            return {"guess": guess, "tries": tries}
 
 
 if __name__ == "__main__":
