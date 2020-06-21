@@ -31,13 +31,15 @@ def binary_search(low, high, actual_number):
         if guess < actual_number:
             low = guess
             guess = low + math.ceil((high - low) / 2)
+            print(guess)
         elif guess > actual_number:
             high = guess
             guess = low + math.floor((high - low) / 2)
+            print(guess)
         elif guess == actual_number:
             print("You got it!")
+            print(guess)
             return {"guess": guess, "tries": tries}
-
 
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
