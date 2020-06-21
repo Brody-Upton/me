@@ -74,7 +74,7 @@ def not_number_rejector(message):
     response = str(input("type a number!: "))
     while response.isdigit() == False:
         print("oh no! Try again")
-        response = input("Try another number: ")
+        response = str(input("Try another number: "))
     print("That certainly is a number")
     return response
 
