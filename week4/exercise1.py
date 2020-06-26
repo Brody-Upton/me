@@ -157,7 +157,16 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
+    filepath = '..\Trispokedovetiles(laser).gcode'
+    mode = 'r'
+    lasers = open(filepath, mode)
+    i = 0
+    for line in lasers:
+        if "M10 P1" in line:
+            i += 1
+    
+    print(i)
+    return i
 
 
 if __name__ == "__main__":
