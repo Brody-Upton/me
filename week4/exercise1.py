@@ -112,11 +112,35 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    heightPrevious = 0
+    i = low
+    while i < high + 1:
+
+        url = template.format(id=i)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+        
+        heightCurrent = the_json["height"]
+        if heightCurrent > heightPrevious:
+            heightPrevious = heightCurrent
+            name = the_json["name"]
+            weight = the_json["weight"]
+            height = the_json["height"]
+
+        elif heightCurrent <= heightPrevious:
+            pass
+
+        i += 1
+    
+    return {"name": name, "weight": weight, "height": height}
+
+
+    #url = template.format(id=5)
+    #r = requests.get(url)
+    #if r.status_code is 200:
+        #the_json = json.loads(r.text)
+    #return {"name": None, "weight": None, "height": None}
 
 
 def diarist():
