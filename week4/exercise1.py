@@ -38,8 +38,9 @@ def get_some_details():
     data = json.loads(json_data)
     lastname = data["results"][0]["name"]["last"]
     passw = data["results"][0]["login"]["password"]
-    postID = int(data["results"][0]["location"]["postcode"]) + int(data["results"][0]["id"]["value"])
-    return {"lastName": lastname, "password": passw, "postcodePlusID": postID}
+    post = int(data["results"][0]["location"]["postcode"])
+    ID = int(data["results"][0]["id"]["value"])
+    return {"lastName": lastname, "password": passw, "postcodePlusID": post + ID}
 
 
 def wordy_pyramid():
