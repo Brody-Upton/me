@@ -157,16 +157,23 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    filepath = '..\Trispokedovetiles(laser).gcode'
+    ##Gets number of "M10P1"
+    filepath = LOCAL + "/Trispokedovetiles(laser).gcode"
     mode = 'r'
     lasers = open(filepath, mode)
-    i = 0
+    numcount = 0
     for line in lasers:
         if "M10 P1" in line:
-            i += 1
+            numcount += 1
+    print(numcount)
+
+    ##Writes number of "M10P1 to new file laser.pew"
+    writemode = 'w'
+    writefilep = "week4/lasers.pew"
+    lasers = open(writefilep, writemode)
+    lasers.write(str(numcount))
+    lasers.close()
     
-    print(i)
-    return i
 
 
 if __name__ == "__main__":
