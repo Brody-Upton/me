@@ -169,10 +169,12 @@ def diarist():
 
     ##Writes number of "M10P1 to new file laser.pew"
     writemode = 'w'
-    writefilep = "week4/lasers.pew"
+    writefilep = LOCAL + "/lasers.pew"
     lasers = open(writefilep, writemode)
     lasers.write(str(numcount))
     lasers.close()
+    
+    pass
     
 
 
