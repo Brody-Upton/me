@@ -174,7 +174,7 @@ def diarist():
     lasers.write(str(numcount))
     lasers.close()
     
-    pass
+    
     
 
 
