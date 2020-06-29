@@ -130,11 +130,6 @@ def pokedex(low=1, high=5):
             name = p["name"]
             weight = p["weight"]
             height = p["height"]
-
-        elif heightCurrent <= tallest:
-            pass
-
-        i += 1
     
     return {"name": name, "weight": weight, "height": height}
 
