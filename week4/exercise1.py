@@ -113,23 +113,25 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    heightPrevious = 0
-    i = low
-    while i < high + 1:
+    tallest = 0
+    pokemon = []
+    for i in range(low, high):
 
         url = template.format(id=i)
         r = requests.get(url)
         if r.status_code is 200:
             the_json = json.loads(r.text)
+            pokemon.append(the_json)
         
-        heightCurrent = the_json["height"]
-        if heightCurrent > heightPrevious:
-            heightPrevious = heightCurrent
-            name = the_json["name"]
-            weight = the_json["weight"]
-            height = the_json["height"]
+    for p in pokemon:
+        heightCurrent = p["height"]
+        if heightCurrent > tallest:
+            tallest = heightCurrent
+            name = p["name"]
+            weight = p["weight"]
+            height = p["height"]
 
-        elif heightCurrent <= heightPrevious:
+        elif heightCurrent <= tallest:
             pass
 
         i += 1
@@ -168,7 +170,7 @@ def diarist():
     lasers = open(writefilep, writemode)
     lasers.write(str(numcount))
     lasers.close()
-    pass
+    
     
     
     
