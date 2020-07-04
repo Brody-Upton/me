@@ -49,7 +49,12 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    pass
+    textlist = []
+    for i in range(start, stop):
+        thecount = message + " {}"
+        textlist.append(thecount.format(i))
+    print(textlist)
+    return textlist
 
 
 # TRIANGLES
@@ -62,32 +67,44 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    pass
+    hypotenuse = (base ** 2 + height ** 2) ** 0.5
+    return hypotenuse
 
 
 def calculate_area(base, height):
-    pass
+    area = base * height
+    return area
 
 
 def calculate_perimeter(base, height):
-    pass
+    perimeter = base + height + calculate_hypotenuse(base, height)
+    return perimeter
 
 
 def calculate_aspect(base, height):
-    pass
+    if height / base > 2:
+        print("It's a tall one!")
+        aspect = "tall"
+    elif height  / base < 2:
+        print("its a shorty!")
+        aspect = "short"
+    else:
+        print("We've got an equal one!")
+        aspect = "equal"
+    return aspect
 
 
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
 def get_triangle_facts(base, height, units="mm"):
     return {
-        "area": None,
-        "perimeter": None,
-        "height": None,
-        "base": None,
-        "hypotenuse": None,
-        "aspect": None,
-        "units": None,
+        "area": calculate_area(base, height),
+        "perimeter": perimeter,
+        "height": height,
+        "base": base,
+        "hypotenuse": calculate_hypotenuse(base, height),
+        "aspect": calculate_aspect(base, height),
+        "units": units,
     }
 
 
@@ -108,6 +125,7 @@ def get_triangle_facts(base, height, units="mm"):
 # but with the values and shape that relate to the specific
 # triangle we care about.
 def tell_me_about_this_right_triangle(facts_dictionary):
+    triangle = {
     tall = """
             {height}
             |
@@ -131,7 +149,7 @@ def tell_me_about_this_right_triangle(facts_dictionary):
             |____>|  ⋱ <-{hypotenuse}
                   |____⋱
                   {base}"""
-
+    }
     pattern = (
         "This triangle is {area}{units}²\n"
         "It has a perimeter of {perimeter}{units}\n"
@@ -139,15 +157,19 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
+    imageoutput = triangle[facts_dictionary[aspect]] + "\n" + facts
+    return imageoutput
+    
 
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     if return_diagram and return_dictionary:
-        return None
+        print(imageoutput + "\n" + facts_dictionary)
+        return {return_diagram: imageoutput, facts_dictionary: facts_dictionary}
     elif return_diagram:
-        return None
+        return imageoutput
     elif return_dictionary:
-        return None
+        return facts_dictionary
     else:
         print("You're an odd one, you don't want anything!")
 
