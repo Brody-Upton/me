@@ -91,7 +91,7 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-    def apply_rules(letter, guard):
+    def apply_rules(letter):
         """Control the substitution.
 
         You need to change these substitutions to make it work.
@@ -99,16 +99,21 @@ def abba(source="abba", guard=3):
         Hint: when guard == -1 return the letter.
         """
         if letter == "a":
-            return "a"
+            return "bba"
         elif letter == "b":
-            return "b"
+            return "aob"
         elif letter == "o":
-            return "o"
+            return "oa"
         else:
             return letter
 
-    # write the rest of the function here
-    pass
+    letter = list(source)
+    split_abba = list(map(apply_rules,letter))  
+    new_abba = "".join(split_abba)
+    guard -= 1
+    while guard >= 0:
+        return abba(new_abba, guard)
+    return new_abba
 
 
 def koch(t, order, size):
@@ -154,7 +159,6 @@ def square_koch(t, order, size):
     trace = ""
     # write the rest of the function here.
     return str(order) + trace
-    pass
 
 
 def draw_square(steps=4):
