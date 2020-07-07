@@ -49,12 +49,11 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    textlist = []
-    for i in range(start, stop):
+    for i in range(start, stop - 1, -1):
         thecount = message + " {}"
-        textlist.append(thecount.format(i))
-    print(textlist)
-    return textlist
+        print(thecount.format(i))
+    print(completion_message)
+    pass
 
 
 # TRIANGLES
@@ -72,7 +71,7 @@ def calculate_hypotenuse(base, height):
 
 
 def calculate_area(base, height):
-    area = base * height
+    area = (base * height) / 2
     return area
 
 
@@ -82,14 +81,11 @@ def calculate_perimeter(base, height):
 
 
 def calculate_aspect(base, height):
-    if height / base > 2:
-        print("It's a tall one!")
+    if height > base:
         aspect = "tall"
-    elif height  / base < 2:
-        print("its a shorty!")
-        aspect = "short"
+    elif height  < base:
+        aspect = "wide"
     else:
-        print("We've got an equal one!")
         aspect = "equal"
     return aspect
 
@@ -157,21 +153,20 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
-    imageoutput = triangle[facts_dictionary["aspect"]] + "\n" + facts
-    return imageoutput
+    diagram = triangle[facts_dictionary["aspect"]] + "\n" + facts
+    return diagram
     
 
 #function which controls the child functions of get_triangle_facts and tell_me_about_this_right_triangle.
 #It can display both functions, or one of either depending on the input
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
-    facts_dictionary = get_triangle_facts(base, height, units="mm")
-    imageoutput = tell_me_about_this_right_triangle(facts_dictionary)
+    facts_dictionary = get_triangle_facts(base, height)
+    diagram = tell_me_about_this_right_triangle(facts_dictionary)
 
     if return_diagram and return_dictionary:
-        print(imageoutput + "\n" + facts_dictionary)
-        return {return_diagram: imageoutput, facts_dictionary: facts_dictionary}
+        return {"diagram": diagram, "facts_dictionary": facts_dictionary}
     elif return_diagram:
-        return imageoutput
+        return diagram
     elif return_dictionary:
         return facts_dictionary
     else:
