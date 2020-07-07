@@ -99,7 +99,7 @@ def calculate_aspect(base, height):
 def get_triangle_facts(base, height, units="mm"):
     return {
         "area": calculate_area(base, height),
-        "perimeter": perimeter,
+        "perimeter": calculate_perimeter(base, height),
         "height": height,
         "base": base,
         "hypotenuse": calculate_hypotenuse(base, height),
@@ -126,7 +126,7 @@ def get_triangle_facts(base, height, units="mm"):
 # triangle we care about.
 def tell_me_about_this_right_triangle(facts_dictionary):
     triangle = {
-    tall = """
+    "tall" : """
             {height}
             |
             |     |\\
@@ -134,15 +134,15 @@ def tell_me_about_this_right_triangle(facts_dictionary):
                   |  \\
                   |   \\
                   ------
-                  {base}"""
-    wide = """
+                  {base}""",
+    "wide" : """
             {hypotenuse}
              ↓         ∕ |
                    ∕     | <-{height}
                ∕         |
             ∕------------|
-              {base}"""
-    equal = """
+              {base}""",
+    "equal" : """
             {height}
             |
             |     |⋱
@@ -157,12 +157,16 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
-    imageoutput = triangle[facts_dictionary[aspect]] + "\n" + facts
+    imageoutput = triangle[facts_dictionary["aspect"]] + "\n" + facts
     return imageoutput
     
 
-
+#function which controls the child functions of get_triangle_facts and tell_me_about_this_right_triangle.
+#It can display both functions, or one of either depending on the input
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
+    facts_dictionary = get_triangle_facts(base, height, units="mm")
+    imageoutput = tell_me_about_this_right_triangle(facts_dictionary)
+
     if return_diagram and return_dictionary:
         print(imageoutput + "\n" + facts_dictionary)
         return {return_diagram: imageoutput, facts_dictionary: facts_dictionary}
@@ -173,7 +177,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
     else:
         print("You're an odd one, you don't want anything!")
 
-
+#Function which produces a pyramid of words which ascends and descends by 2 characters
 def wordy_pyramid(api_key):
     import requests
 
@@ -205,11 +209,29 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
-    pass
+    import requests
+    baseURL = (
+        "http://api.wordnik.com/v4/words.json/randomWords?"
+        "api_key={api_key}"
+        "&minLength={length}"
+        "&maxLength={length}"
+        "&limit=1"
+    )
+    URL = baseURL.format(api_key="", length=length)
+    r = requests.get(URL)
+    if r.status_code is 200: 
+        word = r.json()[0]["word"]
+        print(word)
+        return word
+    else:
+        print("failed a request", r.status_code, length)
+    
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pass
+    test = map(get_a_word_of_length_n, )
+    print(test)
+    return test
 
 
 if __name__ == "__main__":
