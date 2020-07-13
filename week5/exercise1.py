@@ -175,6 +175,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 #Function which produces a pyramid of words which ascends and descends by 2 characters
 def wordy_pyramid():
     import requests
+    import json
 
     baseURL = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}"
     pyramid_list = []
@@ -182,7 +183,7 @@ def wordy_pyramid():
         url = baseURL.format(i)
         r = requests.get(url)
         if r.status_code is 200:
-            message = r.json()[0]["word"]
+            message = r.text
             pyramid_list.append(message)
         else:
             print("failed a request", r.status_code, i)
@@ -190,7 +191,7 @@ def wordy_pyramid():
         url = baseURL.format(i)
         r = requests.get(url)
         if r.status_code is 200:
-            message = r.json()[0]["word"]
+            message = r.text
             pyramid_list.append(message)
         else:
             print("failed a request", r.status_code, i)
@@ -203,7 +204,7 @@ def get_a_word_of_length_n(length):
     URL = baseURL.format(length)
     r = requests.get(URL)
     if r.status_code is 200: 
-        word = r.json()[0]["word"]
+        word = r.text
         print(word)
         return word
     else:
@@ -219,4 +220,5 @@ def list_of_words_with_lengths(list_of_lengths):
 
 if __name__ == "__main__":
     do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+    wordy_pyramid()
+#"a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
