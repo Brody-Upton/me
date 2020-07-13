@@ -111,9 +111,10 @@ def abba(source="abba", guard=3):
     split_abba = list(map(apply_rules,letter))  
     new_abba = "".join(split_abba)
     guard -= 1
-    while guard >= 0:
+    if guard > 0:
         return abba(new_abba, guard)
-    return new_abba
+    else:
+        return new_abba
 
 
 def koch(t, order, size):
