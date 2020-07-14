@@ -15,6 +15,7 @@ This week, the data project made progress in the way of categorising the data an
 I think a good way of structing my project would be splitting it into two sections:
 
 _1. Library data (insights about the type of music I listen to)_
+
 _2. Listening data (insights about how I listen to my music)_
 
 This structure would correspond well with my data sets and would be easy to follow along with.
