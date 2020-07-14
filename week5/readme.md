@@ -12,7 +12,7 @@ Exercise 2 focused more on the concept of recursion. Recursion is the concept of
 
 This week, the data project made progress in the way of categorising the data and finding out some basic facts about library. I think this is a good place to start as it would give the reader an idea of the _library_ that I listen to before they delve deeper into my listening _habits_. I did this by just generating some basic charts and histograms about my listening genres, song durations and other pieces of information. I also did a bit of research into the type of data within my json file (ie. boolean, string, integer etc) so I have an idea of what I'm dealing with.
 
-I think a good way of structing my project would be splitting it into two sections:
+I think a good way of structuring my project would be splitting it into two sections:
 
 _1. Library data (insights about the type of music I listen to)_
 
