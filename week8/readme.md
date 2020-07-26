@@ -1,1 +1,9 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+
+**Data Project**
+This week I was able to create some more graphs regarding the song lengths and finding the longest/shortest songs in my library. At the moment the results are produced in a table but I would like to find out a cleaner way of showing the results of the graphs (maybe annotating the graphs directly?). At the moment all the results that I have received from the analysis is still very intuitive and trivial as I was already somewhat aware of what songs in my library were the shortest/longest. I think the really interesting outcomes of the analysis will come when I start to delve into my listening habits which is my second dataset. 
+
+The second dataset will have to be cleaned up quite a bit in order for it to be useful (there are some errors in it such as recording a song as listened to when it was actually skipped after a couple of seconds). I think some interesting things to look at would be my week-by-week listening, perhaps if i listen to particular genres on certain days or if the volume of music that I listen to differs by time/day/week/season etc. There's a lot to discover that I think will be more interesting than my music library. I still feel as though it's good for the reader to learn a bit about my library before I try and find something out about my listening habits.
+
+**Practice for the exam next week**
+I also managed to flick through some previous weeks to try and familiarise myself with older concepts before the coding exam this week. By doing this I actually found that I have learnt quite a bit since I first start earlier in the term. I think that I need to work more on understanding dictionaries and the requests library
