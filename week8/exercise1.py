@@ -83,8 +83,15 @@ def fizz_buzz():
          'FizzBuzz', 16, 17, ...]
     """
     fizzBuzzList = []
-    # your code here
-
+    for number in range(1, 101):
+        if bool(number%3 == 0):
+            fizzBuzzList.append("Fizz")
+        elif bool(number%5 == 0):
+            fizzBuzzList.append("Buzz")
+        elif bool(number%15 == 0):
+            fizzBuzzList.append("FizzBuzz")
+        else:
+            fizzBuzzList.append(number)
     return fizzBuzzList
 
 
