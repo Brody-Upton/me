@@ -26,7 +26,7 @@ def dictionary_please() -> dict:
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = bool(some_number)
+    well_is_it = bool(some_number == 5)
     return well_is_it
 
 
@@ -40,7 +40,7 @@ def greet(name="Towering Timmy"):
     return a string of "Hello " and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    return None
+    return "Hello " + name
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -48,7 +48,10 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-
+    count = 0
+    for index in input_list:
+        if index is 3:
+            count += 1
     return count
 
 
@@ -56,7 +59,10 @@ def n_counter(search_for_this, input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7
     """Count the number of times search_for_this shows up in the input_list.
     Return an integer.
     """
-
+    count = 0
+    for index in input_list:
+        if index is search_for_this:
+            count += 1
     return count
 
 
