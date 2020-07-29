@@ -225,14 +225,14 @@ def fast_filler(number_of_words=200):
     import json
 
     fname = "dict_racey.json"
-    if os.path.isfile(fname): #If file already there, load dictionary from file as json
+    if os.path.isfile(fname): #If file already there, load dictionary from file as json string
         mode = 'r'
-        read_file = open(fname, mode):
+        read_file = open(fname, mode)
         dictionary = json.load(read_file)
     else: #If file not there, create dictionary from previous function and dump it into file
         mode = 'w'
         dictionary = make_filler_text_dictionary()
-        write_file = open(fname, mode):
+        write_file = open(fname, mode)
         json.dump(dictionary, write_file)
     
     #same as makefillertextdictionary but changing key to string
