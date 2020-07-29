@@ -225,28 +225,26 @@ def fast_filler(number_of_words=200):
     import json
 
     fname = "dict_racey.json"
-    if os.path.isfile(fname): #If file already there, load dictionary from file as json string
-        read_file = open(fname, 'r')
-        dictionary = json.load(read_file)
-    else: #If file not there, create dictionary from previous function and dump it into file
+    if os.path.isfile(fname):
+        with open(fname, "r") as read_file:
+            dictionary = json.load(read_file)
+    else:
         dictionary = make_filler_text_dictionary()
-        write_file = open(fname, 'w')
-        json.dump(dictionary, write_file)
-    
-
-
-    #same as makefillertextdictionary but changing key to string
+        with open(fname, "w") as write_file:
+            json.dump(dictionary, write_file)
     words = []
-    for i in range(number_of_words):
-        length = random.randint(3, 7)
-        rand_word = random.randint(0, 2)
-        certain_word = dictionary[str(length)][rand_word]
-        words.append(certain_word)
-    paragraph = " ".join(words)
-    with_capital = paragraph[0].upper() + paragraph[1:number_of_words]
-    final_para = with_capital + "."
 
-    return final_para
+    for _ in range(number_of_words):
+        word_length = random.randint(3, 7)
+        word_index = random.randint(0, 2)
+        try:
+            words.append(dictionary[word_length][word_index])
+        except KeyError:
+            words.append(dictionary[str(word_length)][word_index])
+
+    paragraph = " ".join(words)
+    paragraph = paragraph[0].upper() + paragraph[1:]
+    return paragraph + "."
 
 if __name__ == "__main__":
     print("string_please", type(string_please()) == str)
