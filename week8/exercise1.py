@@ -84,12 +84,12 @@ def fizz_buzz():
     """
     fizzBuzzList = []
     for number in range(1, 101):
-        if bool(number%3 == 0):
+        if bool(number%5 == 0) and bool(number%3 == 0):
+            fizzBuzzList.append("FizzBuzz")
+        elif bool(number%3 == 0):
             fizzBuzzList.append("Fizz")
         elif bool(number%5 == 0):
             fizzBuzzList.append("Buzz")
-        elif bool(number%15 == 0):
-            fizzBuzzList.append("FizzBuzz")
         else:
             fizzBuzzList.append(number)
     return fizzBuzzList
@@ -105,8 +105,8 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: consider using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-
-    return None
+    straight_bars = "|".join(list(input_string))
+    return "|" + straight_bars + "|"
 
 
 def pet_filter(letter="a"):
