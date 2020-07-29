@@ -123,8 +123,7 @@ def pet_filter(letter="a"):
             "hedgehog","guppy",]
     # fmt: on
     filtered = []
-
-    return filtered
+    return filtered.append(pet in pets if letter in pet)
 
 
 def best_letter_for_pets():
