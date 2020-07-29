@@ -123,7 +123,10 @@ def pet_filter(letter="a"):
             "hedgehog","guppy",]
     # fmt: on
     filtered = []
-    return filtered.append(pet in pets if letter in pet)
+    for pet in pets:
+        if letter in pet:
+            filtered.append(pet)
+    return filtered
 
 
 def best_letter_for_pets():
@@ -133,9 +136,14 @@ def best_letter_for_pets():
     """
     import string
 
-    the_alphabet = string.ascii_lowercase
+    the_alphabet = list(string.ascii_lowercase)
     popular_letter = ""
-
+    longest_index = 0
+    for character in the_alphabet:
+        x = len(pet_filter(character))
+        if x > longest_index:
+            longest_index = x
+            popular_letter = character
     return popular_letter
 
 
@@ -166,8 +174,14 @@ def make_filler_text_dictionary():
 
     import requests
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={}"
     wd = {}
+    for i in range(3, 8):
+        wd[i] = []
+        for j in range(1, 4):
+            r = requests.get(url.format(i))
+            word = r.text
+            wd[i].append(word)
 
     return wd
 
@@ -183,9 +197,13 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-
-    my_dict = make_filler_text_dictionary()
-
+    dictionary = make_filler_text_dictionary()
+    words = []
+    for i in range(number_of_words):
+        length = random.randint(3, 7) 
+        rand_word = random.randint(0, 2)
+        certain_word = dictionary[length][rand_word]
+        words.append(certain_word)
     return " ".join(words)
 
 
@@ -207,8 +225,28 @@ def fast_filler(number_of_words=200):
     import json
 
     fname = "dict_racey.json"
+    if os.path.isfile(fname): #If file already there, load dictionary from file as json
+        mode = 'r'
+        read_file = open(fname, mode):
+        dictionary = json.load(read_file)
+    else: #If file not there, create dictionary from previous function and dump it into file
+        mode = 'w'
+        dictionary = make_filler_text_dictionary()
+        write_file = open(fname, mode):
+        json.dump(dictionary, write_file)
+    
+    #same as makefillertextdictionary but changing key to string
+    words = []
+    for i in range(number_of_words):
+        length = random.randint(3, 7)
+        rand_word = random.randint(0, 2)
+        certain_word = dictionary[str(length)][rand_word]
+        words.append(certain_word)
+    paragraph = " ".join(words)
+    with_capital = paragraph[0].upper() + paragraph[1:number_of_words]
+    final_para = with_capital + "."
 
-    return None
+    return final_para
 
 
 if __name__ == "__main__":
